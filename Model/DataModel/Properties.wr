@@ -1,0 +1,117 @@
+<DataModel xmlns:db="http://www.webratio.com/2006/WebML/Database" xmlns:gr="http://www.webratio.com/2006/WebML/Graph">
+  <Entity id="User" name="User" duration="persistent" gr:x="20" gr:y="158" gr:hideAttributes="false" attributeOrder="userOID userName password email" db:database="db1" db:table="user">
+    <Attribute name="oid" id="userOID" type="integer" key="true" db:column="oid"/>
+    <Attribute name="userName" id="userName" type="string" db:column="username"/>
+    <Attribute name="password" id="password" type="password" db:column="password"/>
+    <Attribute name="email" id="email" type="string" db:column="email"/>
+  </Entity>
+  <Entity id="Group" name="Group" duration="persistent" gr:x="250" gr:y="178" gr:hideAttributes="false" attributeOrder="groupOID groupName" db:database="db1" db:table="group">
+    <Attribute name="oid" id="groupOID" type="integer" key="true" db:column="oid"/>
+    <Attribute name="groupName" id="groupName" type="string" db:column="groupname"/>
+  </Entity>
+  <Entity id="Module" name="Module" duration="persistent" gr:x="472" gr:y="167" gr:hideAttributes="false" attributeOrder="moduleOID moduleID moduleName" db:database="db1" db:table="module">
+    <Attribute name="oid" id="moduleOID" type="integer" key="true" db:column="oid"/>
+    <Attribute name="moduleID" id="moduleID" type="string" db:column="moduleid"/>
+    <Attribute name="moduleName" id="moduleName" type="string" db:column="modulename"/>
+  </Entity>
+  <Relationship id="User2Group_Group2User" name="User_Group" sourceEntity="User" targetEntity="Group" db:database="db1" db:table="user_group_2">
+    <RelationshipRole1 id="User2Group" name="groups" maxCard="N">
+      <db:JoinColumn attribute="userOID" name="user_oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="Group2User" name="users" maxCard="N">
+      <db:JoinColumn attribute="groupOID" name="group_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="User2DefaultGroup_DefaultGroup2User" name="User_DefaultGroup" sourceEntity="User" targetEntity="Group" gr:bendpoints="113,42,-112,44" db:database="db1" db:table="user">
+    <RelationshipRole1 id="User2DefaultGroup" name="defaultGroup" maxCard="1">
+      <db:JoinColumn attribute="userOID" name="oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="DefaultGroup2User" name="defaultUsers" maxCard="N">
+      <db:JoinColumn attribute="groupOID" name="group_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="Group2DefaultModule_DefaultModule2Group" name="Group_DefaultModule" sourceEntity="Group" targetEntity="Module" db:database="db1" db:table="group">
+    <RelationshipRole1 id="Group2DefaultModule" name="defaultModule" maxCard="1">
+      <db:JoinColumn attribute="groupOID" name="oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="DefaultModule2Group" name="defaultGroups" maxCard="N">
+      <db:JoinColumn attribute="moduleOID" name="module_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="Group2Module_Module2Group" name="Group_Module" sourceEntity="Group" targetEntity="Module" gr:bendpoints="110,41,-115,41" db:database="db1" db:table="group_module">
+    <RelationshipRole1 id="Group2Module" name="modules" maxCard="N">
+      <db:JoinColumn attribute="groupOID" name="group_oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="Module2Group" name="groups" maxCard="N">
+      <db:JoinColumn attribute="moduleOID" name="module_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Entity gr:x="80" gr:y="385" id="ent1" name="Pelicula" duration="persistent" attributeOrder="ent1#att1 ent1#att2 ent1#att3 ent1#att4 ent1#att10 ent1#att11" db:database="db1" db:table="pelicula">
+    <Attribute id="ent1#att1" key="true" name="oid" type="integer" db:column="oid"/>
+    <Attribute id="ent1#att2" name="Titulo" type="string" db:column="titulo"/>
+    <Attribute id="ent1#att3" name="Duracion(min)" type="integer" db:column="duracion_min"/>
+    <Attribute id="ent1#att4" name="Fecha_estreno" type="date" db:column="fecha_estreno"/>
+    <Attribute id="ent1#att10" name="Sinopsis" type="text" db:column="sinopsis"/>
+    <Attribute id="ent1#att11" name="G&#233;nero" type="string" db:column="genero"/>
+  </Entity>
+  <Entity gr:x="375" gr:y="375" id="ent2" name="Valoraci&#243;n_media" duration="persistent" attributeOrder="ent2#att5 ent2#att13" db:database="db1" db:table="valoracion_media">
+    <Attribute id="ent2#att5" key="true" name="oid" type="integer" db:column="oid"/>
+    <Attribute id="ent2#att13" name="Media" type="float" db:column="media"/>
+  </Entity>
+  <Relationship id="rel1" name="Pelicula_val-MEDIA" sourceEntity="ent1" targetEntity="ent2" db:database="db1" db:table="valoracion_media">
+    <RelationshipRole1 id="rel1#role1" name="PeliculaToValoraci&#243;n" maxCard="1">
+      <db:JoinColumn attribute="ent1#att1" name="pelicula_oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel1#role2" name="Valoraci&#243;nToPelicula" maxCard="1">
+      <db:JoinColumn attribute="ent2#att5" name="oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Entity gr:x="375" gr:y="460" id="ent7" name="Valoraci&#243;n" duration="persistent" attributeOrder="ent7#att12 ent7#att14 ent7#att15" db:database="db1" db:table="valoracion">
+    <Attribute id="ent7#att12" key="true" name="oid" type="integer" db:column="oid"/>
+    <Attribute id="ent7#att14" name="Valoraci&#243;n" type="integer" db:column="valoracion"/>
+    <Attribute id="ent7#att15" name="Comentario" type="text" db:column="comentario"/>
+  </Entity>
+  <db:Database id="db1" name="DB_vinculacion" type="PostgreSQL 9" url="jdbc:postgresql://localhost:5432/PruebaBD" username="postgres" password="admin" schema="public">
+  </db:Database>
+  <Entity id="ent6" name="Grupo" duration="persistent" attributeOrder="ent6#att9 ent6#att16" gr:hideAttributes="false" gr:x="360" gr:y="625" db:database="db1" db:table="grupo">
+    <Attribute id="ent6#att9" name="oid" key="true" type="integer" db:column="oid"/>
+    <Attribute id="ent6#att16" name="groupName" type="string" db:column="groupname"/>
+  </Entity>
+  <Entity id="ent8" name="Artista" duration="persistent" attributeOrder="ent8#att17 ent8#att18 ent8#att20" gr:hideAttributes="false" gr:x="90" gr:y="615" db:database="db1" db:table="artista">
+    <Attribute id="ent8#att17" name="oid" key="true" type="integer" db:column="oid"/>
+    <Attribute id="ent8#att18" name="Nombre" type="string" db:column="nombre"/>
+    <Attribute id="ent8#att20" name="Tipo_artista" type="string" db:column="tipo_artista"/>
+  </Entity>
+  <Relationship id="rel6" name="Artista_DefaultGroup" sourceEntity="ent8" targetEntity="ent6" gr:bendpoints="113,42,-112,44" db:database="db1" db:table="artista">
+    <RelationshipRole1 id="rel6#role11" name="defaultGroup" maxCard="1">
+      <db:JoinColumn attribute="ent8#att17" name="oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel6#role12" name="defaultUsers" maxCard="N">
+      <db:JoinColumn attribute="ent6#att9" name="grupo_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="rel9" name="Artista_Group" sourceEntity="ent8" targetEntity="ent6" db:database="db1" db:table="user_group">
+    <RelationshipRole1 id="rel9#role17" name="groups" maxCard="N">
+      <db:JoinColumn attribute="ent8#att17" name="artista_oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel9#role18" name="users" maxCard="N">
+      <db:JoinColumn attribute="ent6#att9" name="grupo_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="rel11" name="Pelicula_Artista" sourceEntity="ent1" targetEntity="ent8" db:database="db1" db:table="pelicula_artista">
+    <RelationshipRole1 id="rel11#role21" name="PeliculaToArtista" maxCard="N">
+      <db:JoinColumn attribute="ent1#att1" name="pelicula_oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel11#role22" name="ArtistaToPelicula" maxCard="N">
+      <db:JoinColumn attribute="ent8#att17" name="artista_oid"/>
+    </RelationshipRole2>
+  </Relationship>
+  <Relationship id="rel3" name="Pelicula_Valoracion" sourceEntity="ent1" targetEntity="ent7" db:database="db1" db:table="valoracion">
+    <RelationshipRole1 id="rel3#role5" name="PeliculaToValoraci&#243;n_2" maxCard="N">
+      <db:JoinColumn attribute="ent1#att1" name="pelicula_oid"/>
+    </RelationshipRole1>
+    <RelationshipRole2 id="rel3#role6" name="Valoraci&#243;nToPelicula" maxCard="1">
+      <db:JoinColumn attribute="ent7#att12" name="oid"/>
+    </RelationshipRole2>
+  </Relationship>
+</DataModel>

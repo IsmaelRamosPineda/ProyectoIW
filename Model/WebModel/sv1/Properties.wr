@@ -1,0 +1,68 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Site View 1" landmarks="sv1#page1 sv1#page4 sv1#page3 sv1#page5" homePage="sv1#page1">
+  <OperationUnits>
+    <SelectorUnit gr:x="345" gr:y="-135" id="sv1#seu2" name="Selector pelicula" entity="ent1">
+      <Selector id="sv1#seu2#su3" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#seu2#su3#kcond3" name="KeyCondition1" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#seu2#oln4" name="OKFlow4" to="sv1#page1#enu1">
+        <LinkParameter id="sv1#seu2#oln4#par29" name="Duracion(min)_Duracion(min)" source="ent1#att3Array" target="sv1#page1#enu1#fld3_slot"/>
+        <LinkParameter id="sv1#seu2#oln4#par30" name="Fecha_estreno_Fecha_estreno" source="ent1#att4Array" target="sv1#page1#enu1#fld4_slot"/>
+        <LinkParameter id="sv1#seu2#oln4#par31" name="G&#233;nero_G&#233;nero" source="ent1#att11Array" target="sv1#page1#enu1#fld6_slot"/>
+        <LinkParameter id="sv1#seu2#oln4#par32" name="oid_oid" source="ent1#att1Array" target="sv1#page1#enu1#fld1_slot"/>
+        <LinkParameter id="sv1#seu2#oln4#par33" name="Sinopsis_Sinopsis" source="ent1#att10Array" target="sv1#page1#enu1#fld5_slot"/>
+        <LinkParameter id="sv1#seu2#oln4#par34" name="Titulo_Titulo" source="ent1#att2Array" target="sv1#page1#enu1#fld2_slot"/>
+      </OKLink>
+    </SelectorUnit>
+    <IsNotNullUnit gr:x="830" gr:y="120" id="sv1#inn1" name="Is Not Null1" emptyStringAsNull="true">
+      <KOLink id="sv1#inn1#kln1" name="KOFlow1" to="sv1#cru1">
+        <LinkParameter id="sv1#inn1#kln1#par41" name="Duracion(min)_PASSING_Duracion(min)" sourceLinkParameter="sv1#page1#enu1#ln3#par35" target="sv1#cru1.ent1#att3"/>
+        <LinkParameter id="sv1#inn1#kln1#par42" name="Fecha_estreno_PASSING_Fecha_estreno" sourceLinkParameter="sv1#page1#enu1#ln3#par36" target="sv1#cru1.ent1#att4"/>
+        <LinkParameter id="sv1#inn1#kln1#par43" name="G&#233;nero_PASSING_G&#233;nero" sourceLinkParameter="sv1#page1#enu1#ln3#par37" target="sv1#cru1.ent1#att11"/>
+        <LinkParameter id="sv1#inn1#kln1#par44" name="Key [oid]_PASSING_oid" sourceLinkParameter="sv1#page1#enu1#ln3#par38" target="sv1#cru1.ent1#att1"/>
+        <LinkParameter id="sv1#inn1#kln1#par45" name="Sinopsis_PASSING_Sinopsis" sourceLinkParameter="sv1#page1#enu1#ln3#par39" target="sv1#cru1.ent1#att10"/>
+        <LinkParameter id="sv1#inn1#kln1#par46" name="Titulo_PASSING_Titulo" sourceLinkParameter="sv1#page1#enu1#ln3#par40" target="sv1#cru1.ent1#att2"/>
+      </KOLink>
+      <OKLink id="sv1#inn1#oln5" name="OKFlow5" to="sv1#mfu1">
+        <LinkParameter id="sv1#inn1#oln5#par47" name="Duracion(min)_PASSING_Duracion(min)" sourceLinkParameter="sv1#page1#enu1#ln3#par35" target="sv1#mfu1.ent1#att3"/>
+        <LinkParameter id="sv1#inn1#oln5#par48" name="Fecha_estreno_PASSING_Fecha_estreno" sourceLinkParameter="sv1#page1#enu1#ln3#par36" target="sv1#mfu1.ent1#att4"/>
+        <LinkParameter id="sv1#inn1#oln5#par49" name="G&#233;nero_PASSING_G&#233;nero" sourceLinkParameter="sv1#page1#enu1#ln3#par37" target="sv1#mfu1.ent1#att11"/>
+        <LinkParameter id="sv1#inn1#oln5#par50" name="Input Value_KeyCondition2 [oid]" source="inputValue" target="sv1#mfu1#su2#kcond2.ent1#att1"/>
+        <LinkParameter id="sv1#inn1#oln5#par51" name="Sinopsis_PASSING_Sinopsis" sourceLinkParameter="sv1#page1#enu1#ln3#par39" target="sv1#mfu1.ent1#att10"/>
+        <LinkParameter id="sv1#inn1#oln5#par52" name="Titulo_PASSING_Titulo" sourceLinkParameter="sv1#page1#enu1#ln3#par40" target="sv1#mfu1.ent1#att2"/>
+      </OKLink>
+    </IsNotNullUnit>
+    <CreateUnit gr:x="740" gr:y="370" id="sv1#cru1" name="Crear pelicula" entity="ent1">
+      <OKLink id="sv1#cru1#oln7" name="OKFlow7" to="sv1#page1" automaticCoupling="true"/>
+    </CreateUnit>
+    <ModifyUnit gr:x="910" gr:y="290" id="sv1#mfu1" name="Actualizar pelicula" entity="ent1">
+      <Selector id="sv1#mfu1#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#mfu1#su2#kcond2" name="KeyCondition2" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#mfu1#oln6" name="OKFlow6" to="sv1#page1" automaticCoupling="true"/>
+    </ModifyUnit>
+    <DeleteUnit gr:x="590" gr:y="485" id="sv1#dlu1" name="Borrar pelicula" entity="ent1">
+      <Selector id="sv1#dlu1#su4" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#dlu1#su4#kcond4" name="KeyCondition4" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#dlu1#oln8" name="OKFlow8" to="sv1#page1" automaticCoupling="true" gr:bendpoints="-247,0,-2,315"/>
+    </DeleteUnit>
+    <SelectorUnit gr:x="10" gr:y="160" id="sv1#seu3" name="Selector valoracion" entity="ent1">
+      <Selector id="sv1#seu3#su5" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#seu3#su5#kcond5" name="KeyCondition5" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#seu3#oln9" name="OKFlow9" to="sv1#page5#enu2">
+        <LinkParameter id="sv1#seu3#oln9#par53" name="oid_Key Condition [oid]" source="ent1#att1Array" target="sv1#page5#enu2.ent7#att12"/>
+        <LinkParameter id="sv1#seu3#oln9#par54" name="oid_PASSING" source="ent1#att1Array" passing="true"/>
+      </OKLink>
+    </SelectorUnit>
+    <CreateUnit gr:x="170" gr:y="745" id="sv1#cru2" name="Crear valoracion" entity="ent7">
+      <OKLink id="sv1#cru2#oln1" name="OKFlow1" to="sv1#page5" automaticCoupling="true" gr:bendpoints="-160,1,-80,196"/>
+    </CreateUnit>
+    <DeleteUnit gr:x="395" gr:y="680" id="sv1#dlu2" name="Borrar valoracion" entity="ent7">
+      <Selector id="sv1#dlu2#su6" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#dlu2#su6#kcond6" name="KeyCondition6" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#dlu2#oln2" name="OKFlow2" to="sv1#page5" automaticCoupling="true" gr:bendpoints="-177,0,133,135"/>
+    </DeleteUnit>
+  </OperationUnits>
+</SiteView>
