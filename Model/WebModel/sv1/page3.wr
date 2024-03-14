@@ -1,11 +1,20 @@
-<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="1105" gr:y="-140" id="sv1#page3" name="Favoritas" landmark="true">
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="50" gr:y="120" id="sv1#page3" name="Favoritas" landmark="true">
   <ContentUnits>
-    <IndexUnit gr:x="0" gr:y="0" id="sv1#page3#inu1" name="Peliculas favoritas" entity="ent1"/>
+    <IndexUnit gr:x="0" gr:y="0" id="sv1#page3#inu1" name="Peliculas favoritas" entity="ent4" displayAttributes="ent4#att24 ent4#att25 ent4#att26 ent4#att27 ent4#att28" linkOrder="sv1#page3#inu1#ln15">
+      <Link id="sv1#page3#inu1#ln15" name="Eliminar" to="sv1#dlu3" automaticCoupling="true" type="normal" validate="true"/>
+    </IndexUnit>
   </ContentUnits>
   <layout:Grid containerType="grid">
     <layout:Row>
       <layout:Cell colspan="12">
-        <layout:Unit unitId="sv1#page3#inu1"/>
+        <layout:Unit unitId="sv1#page3#inu1">
+          <layout:Attribute attribute="ent4#att24"/>
+          <layout:Attribute attribute="ent4#att25"/>
+          <layout:Attribute attribute="ent4#att26"/>
+          <layout:Attribute attribute="ent4#att27"/>
+          <layout:Attribute attribute="ent4#att28"/>
+          <layout:Link link="sv1#page3#inu1#ln15"/>
+        </layout:Unit>
       </layout:Cell>
       <layout:Cell/>
       <layout:Cell/>

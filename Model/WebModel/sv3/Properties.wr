@@ -1,0 +1,8 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv3" name="Zona Admin" protected="true" homePage="sv3#page6" landmarks="sv3#lou1">
+  <OperationUnits>
+    <LogoutUnit gr:x="170" gr:y="385" id="sv3#lou1" name="Logout" siteView="sv2" landmark="true"/>
+    <CreateUnit gr:x="525" gr:y="220" id="sv3#cru3" name="Crear usuario" entity="User">
+      <OKLink id="sv3#cru3#oln3" name="OKFlow3" to="sv3#page6" automaticCoupling="true"/>
+    </CreateUnit>
+  </OperationUnits>
+</SiteView>

@@ -1,10 +1,11 @@
-<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="225" gr:y="55" id="sv1#page1" name="Listado de Pel&#237;culas" landmark="true">
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="405" gr:y="155" id="sv1#page1" name="Listado de Pel&#237;culas" landmark="true">
   <ContentUnits>
-    <IndexUnit gr:x="40" gr:y="0" id="sv1#page1#inu2" name="Cat&#225;logo" entity="ent1" displayAttributes="ent1#att2 ent1#att11 ent1#att3" linkOrder="sv1#page1#inu2#ln1 sv1#page1#inu2#ln2 sv1#page1#inu2#ln4 sv1#page1#inu2#ln6">
+    <IndexUnit gr:x="40" gr:y="0" id="sv1#page1#inu2" name="Cat&#225;logo" entity="ent1" displayAttributes="ent1#att2 ent1#att11 ent1#att3" linkOrder="sv1#page1#inu2#ln1 sv1#page1#inu2#ln2 sv1#page1#inu2#ln4 sv1#page1#inu2#ln6 sv1#page1#inu2#ln14">
       <Link id="sv1#page1#inu2#ln1" name="Seleccionar" to="sv1#seu2" automaticCoupling="true" type="normal" validate="true"/>
       <Link id="sv1#page1#inu2#ln2" name="Detalles" to="sv1#page1#dau1" automaticCoupling="true" type="normal" validate="true"/>
       <Link id="sv1#page1#inu2#ln4" name="Borrar" to="sv1#dlu1" automaticCoupling="true" type="normal" validate="true"/>
       <Link id="sv1#page1#inu2#ln6" name="Valorar" to="sv1#seu3" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#page1#inu2#ln14" name="FAV" to="sv1#seu5" automaticCoupling="true" type="normal" validate="true"/>
     </IndexUnit>
     <DataUnit gr:x="0" gr:y="175" id="sv1#page1#dau1" name="Detalles de la Pel&#237;cula" entity="ent1" displayAttributes="ent1#att2 ent1#att3 ent1#att4 ent1#att10 ent1#att11" linkOrder="sv1#page1#dau1#ln8">
       <Selector id="sv1#page1#dau1#su1" defaultPolicy="fill" booleanOperator="and">
@@ -30,6 +31,17 @@
       </Link>
     </EntryUnit>
     <MultiDataUnit gr:x="205" gr:y="155" id="sv1#page1#mdu1" name="Opiniones " entity="ent7" maxResults="5" distinct="true" displayAttributes="ent7#att14 ent7#att15"/>
+    <EntryUnit gr:x="20" gr:y="305" id="sv1#page1#enu5" name="Buscar pel&#237;cula" linkOrder="sv1#page1#enu5#ln16">
+      <Field id="sv1#page1#enu5#fld15" name="T&#237;tulo" type="string" modifiable="true"/>
+      <Link id="sv1#page1#enu5#ln16" name="Buscar" to="sv1#seu6" type="normal" validate="true">
+        <LinkParameter id="sv1#page1#enu5#ln16#par19" name="texto_contiene" source="sv1#page1#enu5#fld15" target="sv1#seu6#su10#acond1"/>
+      </Link>
+    </EntryUnit>
+    <IndexUnit gr:x="210" gr:y="300" id="sv1#page1#inu4" name="Resultado busqueda" entity="ent1" displayAttributes="ent1#att2 ent1#att3 ent1#att11">
+      <Selector id="sv1#page1#inu4#su9" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#page1#inu4#su9#kcond9" name="KeyCondition9" predicate="in" implied="false"/>
+      </Selector>
+    </IndexUnit>
   </ContentUnits>
   <layout:Grid containerType="grid">
     <layout:Row>
@@ -42,6 +54,7 @@
           <layout:Link link="sv1#page1#inu2#ln2"/>
           <layout:Link link="sv1#page1#inu2#ln4"/>
           <layout:Link link="sv1#page1#inu2#ln6"/>
+          <layout:Link link="sv1#page1#inu2#ln14"/>
         </layout:Unit>
       </layout:Cell>
       <layout:Cell/>
@@ -108,6 +121,45 @@
         <layout:Unit unitId="sv1#page1#mdu1">
           <layout:Attribute attribute="ent7#att14"/>
           <layout:Attribute attribute="ent7#att15"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#enu5">
+          <layout:Field field="sv1#page1#enu5#fld15"/>
+          <layout:Link link="sv1#page1#enu5#ln16"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#inu4">
+          <layout:Attribute attribute="ent1#att2"/>
+          <layout:Attribute attribute="ent1#att3"/>
+          <layout:Attribute attribute="ent1#att11"/>
         </layout:Unit>
       </layout:Cell>
       <layout:Cell/>

@@ -114,4 +114,13 @@
       <db:JoinColumn attribute="ent7#att12" name="oid"/>
     </RelationshipRole2>
   </Relationship>
+  <Entity gr:x="650" gr:y="385" id="ent4" name="Favorita" duration="persistent" attributeOrder="ent4#att23 ent4#att24 ent4#att25 ent4#att26 ent4#att27 ent4#att28 ent4#att30" volatileStorage="database" db:database="db1" db:table="favorita">
+    <Attribute id="ent4#att23" key="true" name="oid" type="integer" db:column="oid"/>
+    <Attribute id="ent4#att24" name="Titulo" type="string" db:column="titulo"/>
+    <Attribute id="ent4#att25" name="Sinopsis" type="text" db:column="sinopsis"/>
+    <Attribute id="ent4#att26" name="G&#233;nero" type="string" db:column="genero"/>
+    <Attribute id="ent4#att27" name="Fecha_estreno" type="date" db:column="fecha_estreno"/>
+    <Attribute id="ent4#att28" name="Duracion(min)" type="integer" db:column="duracion_min"/>
+    <Attribute id="ent4#att30" name="oid_pelicula" type="string" db:column="oid_pelicula"/>
+  </Entity>
 </DataModel>
